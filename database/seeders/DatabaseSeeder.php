@@ -35,15 +35,15 @@ class DatabaseSeeder extends Seeder
         $this->call(BannersTableSeeder::class);
         $this->call(CardHomesTableSeeder::class);
         $this->call(CategoriesTableSeeder::class);
-        $this->call(CategoryHasProductsTableSeeder::class);
+        $this->call(ProductsTableSeeder::class);
         $this->call(DoctorsTableSeeder::class);
         $this->call(GridHomesTableSeeder::class);
         $this->call(PersonalAccessTokensTableSeeder::class);
-        $this->call(ProductsTableSeeder::class);
         $this->call(ProgramPagesTableSeeder::class);
         $this->call(ReservationsTableSeeder::class);
         $this->call(TestProjectResultsTableSeeder::class);
         $this->call(TestProjectsTableSeeder::class);
         $this->call(UsersTableSeeder::class);
+        $this->call(CategoryHasProductsTableSeeder::class);
     }
 }
