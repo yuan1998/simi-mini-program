@@ -84,8 +84,8 @@ class ProductController extends AdminController
         }]), function (Form $form) {
             $form->display('id');
             $form->text('title')->required();
-            $form->image('cover')->removable(false)->autoUpload()->compress();
-            $form->multipleImage('images')->removable(false)->autoUpload()->compress()->limit(5)
+            $form->image('cover')->removable(false)->autoUpload();
+            $form->multipleImage('images')->removable(false)->autoUpload()->limit(5)
                 ->saveAsJson();
 
             $form->text('sku')
