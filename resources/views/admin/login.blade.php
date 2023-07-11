@@ -135,7 +135,7 @@
 
             <div class="login-box">
                 <div class="login-logo mb-2">
-                    <h4 class="mt-0">智能化的全渠道营销工具</h4>
+                    <h4 class="mt-0">南无阿弥陀佛</h4>
                     <p class="login-box-msg mt-1 mb-1">{{ __('admin.welcome_back') }}</p>
                 </div>
                 <div class="card">

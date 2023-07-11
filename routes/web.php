@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('diTDSznjzx.txt',function() {
+    return '546bf3fd96a552eb5a1b8efc6f8cfff1';
 });
