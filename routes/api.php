@@ -29,23 +29,23 @@ Route::group([
     'middleware' => ['auth:sanctum']
 ], function () {
     Route::get('/wechat/user', [WeChatController::class, 'indexUser']);
-
-    Route::get('/categories', [CategoryController::class, 'index']);
-    Route::get('/product/search', [ProductController::class, 'search']);
-    Route::get('/doctor/options', [DoctorController::class, 'indexOfOptions']);
-    Route::get('/reservation', [ReservationController::class, 'indexOfUser']);
     Route::post('/project/result', [TestProjectResultController::class, 'store']);
     Route::post('/reservation', [ReservationController::class, 'store']);
-
-    Route::get('/category/{id}/products', [ProductController::class, 'indexOfCategory']);
-    Route::get('/product/{id}', [ProductController::class, 'detail']);
-    Route::get('/project/{id}', [TestProjectController::class, 'detail']);
-    Route::get('/article/{id}', [ArticleController::class, 'show']);
-
+    Route::get('/reservation', [ReservationController::class, 'indexOfUser']);
 });
+
+Route::get('/categories', [CategoryController::class, 'index']);
+Route::get('/product/search', [ProductController::class, 'search']);
+Route::get('/doctor/options', [DoctorController::class, 'indexOfOptions']);
+
+Route::get('/category/{id}/products', [ProductController::class, 'indexOfCategory']);
+Route::get('/product/{id}', [ProductController::class, 'detail']);
+Route::get('/project/{id}', [TestProjectController::class, 'detail']);
+Route::get('/article/{id}', [ArticleController::class, 'show']);
 
 Route::get('/banner', [BannerController::class, 'index']);
 Route::get('/home/setting', [BannerController::class, 'homeSetting']);
 Route::get('/grid_home', [GridHomeController::class, 'index']);
 Route::get('/card_home', [CardHomeController::class, 'index']);
 Route::any('/wechat/login', [WeChatController::class, 'login']);
+Route::any('/wechat/phone', [WeChatController::class, 'decryptedPhone']);

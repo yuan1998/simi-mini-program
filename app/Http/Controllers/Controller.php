@@ -14,6 +14,7 @@ class Controller extends BaseController
     const HTTP_OK = 0;
     const HTTP_AUTH_ERROR = 1001;
     const HTTP_AUTH_BLOCK = 1002;
+    const HTTP_AUTH_PHONE_ERROR = 1003;
 
     const HTTP_REQUEST_ERROR = 4001;
 

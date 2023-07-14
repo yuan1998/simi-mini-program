@@ -18,17 +18,14 @@ class ProgramPageController extends AdminController
     protected function grid()
     {
         return Grid::make(new ProgramPage(), function (Grid $grid) {
+            $grid->sortable();
             $grid->column('id')->sortable();
             $grid->column('path');
             $grid->column('name');
-            $grid->column('type');
-            $grid->column('order');
-            $grid->column('created_at');
-            $grid->column('updated_at')->sortable();
-        
+
             $grid->filter(function (Grid\Filter $filter) {
                 $filter->equal('id');
-        
+
             });
         });
     }
@@ -64,9 +61,7 @@ class ProgramPageController extends AdminController
             $form->display('id');
             $form->text('path');
             $form->text('name');
-            $form->text('type');
-            $form->text('order');
-        
+
             $form->display('created_at');
             $form->display('updated_at');
         });

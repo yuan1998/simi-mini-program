@@ -23,10 +23,13 @@ class ProductController extends AdminController
             $grid->sortable();
             $grid->column('id')->sortable();
             $grid->column('title');
-            $grid->column('cover')->image('', 100, 100);
-            $grid->column('images')->display(function ($val) {
-                return json_decode($val, true);
-            })->image('', 60, 60);
+            $grid->column('cover')
+                ->image('', 100, 100);
+            $grid->column('images')
+                ->display(function ($val) {
+                    return json_decode($val, true);
+                })
+                ->image('', 60, 60);
             $grid->column('sku');
 //            $grid->column('view');
 //            $grid->column('sell');
@@ -85,7 +88,10 @@ class ProductController extends AdminController
             $form->display('id');
             $form->text('title')->required();
             $form->image('cover')->removable(false)->autoUpload();
-            $form->multipleImage('images')->removable(false)->autoUpload()->limit(5)
+            $form->multipleImage('images')
+                ->removable(false)
+                ->autoUpload()
+                ->limit(5)
                 ->saveAsJson();
 
             $form->text('sku')

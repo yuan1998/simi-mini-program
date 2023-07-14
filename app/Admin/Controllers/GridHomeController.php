@@ -89,6 +89,8 @@ class GridHomeController extends AdminController
                     $form->text('target_3', '小程序页面')->help('输入小程序路径');
                 })->when(4, function ($form) {
                     $form->text('target_4', '外部url')->help('使用外部url需要在小程序官网添加业务域名');
+                })->when(6, function ($form) {
+                    $form->text('target_6', '商品ID')->help('输入站内商品的ID');
                 })->required()
                 ->default(0);
 

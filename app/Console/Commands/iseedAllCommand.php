@@ -25,6 +25,8 @@ class iseedAllCommand extends Command
         'audits',
         'jobs',
         'failed_jobs',
+        'admin_extensions',
+        'admin_extension_histories',
         'enquiries',
         'password_resets',
     ];
