@@ -4,6 +4,7 @@ namespace App\Admin\Controllers;
 
 use App\Models\Article;
 use App\Models\Banner;
+use App\Models\Product;
 use App\Models\ProgramPage;
 use App\Models\TestProject;
 use Dcat\Admin\Form;
@@ -119,6 +120,12 @@ class BannerController extends AdminController
                         if (!filter_var($val, FILTER_VALIDATE_URL))
                             return $form->validationErrorsResponse([
                                 $key => '错误的h5链接'
+                            ]);
+                        break;
+                    case "6":
+                        if (!is_numeric($val) || !Product::query()->where('id', $val)->exists())
+                            return $form->validationErrorsResponse([
+                                $key => '错误的商品ID参数'
                             ]);
                         break;
                     default:
