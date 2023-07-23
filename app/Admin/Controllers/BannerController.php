@@ -132,6 +132,7 @@ class BannerController extends AdminController
                     'target_2',
                     'target_3',
                     'target_4',
+                    'target_6',
                 ]);
 
             });
