@@ -5,6 +5,7 @@ namespace App\Admin\Controllers;
 use App\Models\Article;
 use App\Models\Banner;
 use App\Models\CardHome;
+use App\Models\Product;
 use App\Models\ProgramPage;
 use App\Models\TestProject;
 use Dcat\Admin\Form;
@@ -121,15 +122,17 @@ class CardHomeController extends AdminController
                             ]);
                         break;
                     case "3":
-                        if (!ProgramPage::query()->where('path', $val)->exists())
-                            return $form->validationErrorsResponse([
-                                $key => '错误的小程序路径参数'
-                            ]);
                         break;
                     case "4":
                         if (!filter_var($val, FILTER_VALIDATE_URL))
                             return $form->validationErrorsResponse([
                                 $key => '错误的h5链接'
+                            ]);
+                        break;
+                    case "6":
+                        if (!is_numeric($val) || !Product::query()->where('id', $val)->exists())
+                            return $form->validationErrorsResponse([
+                                $key => '错误的商品ID参数'
                             ]);
                         break;
                     default:
@@ -143,6 +146,7 @@ class CardHomeController extends AdminController
                     'target_2',
                     'target_3',
                     'target_4',
+                    'target_6',
                 ]);
 
             });

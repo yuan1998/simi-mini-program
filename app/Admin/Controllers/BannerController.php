@@ -111,10 +111,6 @@ class BannerController extends AdminController
                             ]);
                         break;
                     case "3":
-                        if (!ProgramPage::query()->where('path', $val)->exists())
-                            return $form->validationErrorsResponse([
-                                $key => '错误的小程序路径参数'
-                            ]);
                         break;
                     case "4":
                         if (!filter_var($val, FILTER_VALIDATE_URL))
