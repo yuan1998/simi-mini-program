@@ -27,8 +27,10 @@ class GridHome extends Model  implements Sortable
     }
 
     public function safeData () {
-        $result = Arr::only($this->toArray() , ['path',
+        $result = Arr::only($this->toArray() , [
+            'path',
             'target',
+            'name',
             'target_type',
         ]);
         $result['path'] = $this->full_path;

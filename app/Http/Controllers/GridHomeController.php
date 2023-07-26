@@ -10,7 +10,7 @@ class GridHomeController extends Controller
     public function index()
     {
         $data = GridHome::query()
-            ->select(['enable', 'path', 'order', 'target' , 'target_type'])
+            ->select(['enable', 'path', 'order', 'target' , 'target_type' ,'name'])
             ->where('enable', 1)
             ->orderBy('order')
             ->limit(10)
