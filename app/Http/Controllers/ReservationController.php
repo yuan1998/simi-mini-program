@@ -38,12 +38,7 @@ class ReservationController extends Controller
 
     public function store(Request $request)
     {
-        $validator = Validator::make($request->only([
-            'phone',
-            'name',
-            'doctor_id',
-            'date'
-        ]), [
+        $validator = Validator::make($request->all(), [
             'name' => 'required|max:10',
             'phone' => 'required|regex:/^1[3-9]\d{9}$/i',
             'doctor_id' => 'required|exists:doctors,id',
