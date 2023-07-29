@@ -8,11 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\EloquentSortable\Sortable;
 use Spatie\EloquentSortable\SortableTrait;
 
-class Project extends Model  implements Sortable
+class Project extends Model implements Sortable
 {
     use HasFactory;
     use HasDateTimeFormatter;
     use SortableTrait;
+
     protected $sortable = [
         // 设置排序字段名称
         'order_column_name' => 'order',
@@ -20,7 +21,11 @@ class Project extends Model  implements Sortable
         'sort_when_creating' => true,
     ];
 
-    public static function toOptions() {
-        
+    public static function toOptions(): \Illuminate\Support\Collection
+    {
+        return static::query()
+            ->where('enable', 1)
+            ->orderBy('order')
+            ->get()->pluck('title', 'id');
     }
 }

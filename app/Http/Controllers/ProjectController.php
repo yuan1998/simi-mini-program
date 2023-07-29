@@ -12,7 +12,14 @@ class ProjectController extends Controller
         $data = Project::query()
             ->where('enable', 1)
             ->orderBy('order')
-            ->get();
+            ->get()
+            ->map(function ($item) {
+                return [
+                    'text' => $item->title,
+                    'value' => $item->id,
+                ];
+            });
+
 
         return response()
             ->json([

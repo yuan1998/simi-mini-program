@@ -48,6 +48,8 @@ class ReservationController extends Controller
             'phone' => 'required|regex:/^1[3-9]\d{9}$/i',
             'doctor_id' => 'required|exists:doctors,id',
             'date' => 'required|date',
+            'project_id' => 'required|exists:projects,id',
+            'project_name' => 'required',
         ], [
             'phone.required' => '电话不能为空',
             'date.required' => '预约日期不能为空',

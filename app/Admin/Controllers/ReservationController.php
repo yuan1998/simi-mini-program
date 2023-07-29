@@ -3,6 +3,7 @@
 namespace App\Admin\Controllers;
 
 use App\Models\Doctor;
+use App\Models\Project;
 use App\Models\Reservation;
 use App\Models\User;
 use Dcat\Admin\Form;
@@ -21,10 +22,11 @@ class ReservationController extends AdminController
     {
         return Grid::make(Reservation::with(['user', 'doctor']), function (Grid $grid) {
             $grid->showColumnSelector();
-            $grid->model()->orderBy('date','desc');
+            $grid->model()->orderBy('date', 'desc');
             $grid->column('id');
             $grid->column('name', '预约姓名');
             $grid->column('phone', '预约电话');
+            $grid->column('project_name', '预约项目');
             $grid->column('user.nike_name', '用户名');
             $grid->column('doctor.name', '医生');
             $grid->column('status')->radio(Reservation::STATUS_LIST);
@@ -71,12 +73,21 @@ class ReservationController extends AdminController
             $form->display('id');
             $form->select('user_id')->options(User::toOptions())->required();
             $form->select('doctor_id')->options(Doctor::toOptions())->required();
+            $form->select('project_id')->options(Project::toOptions())->required();
             $form->radio('status')->options(Reservation::STATUS_LIST)->default(0)->required();
+            $form->text('name')->required();
+            $form->text('phone')->required();
             $form->hidden('enable')->default(1);
+            $form->hidden('project_name');
             $form->datetime('date')->required();
 
             $form->display('created_at');
             $form->display('updated_at');
+            $form->submitted(function (Form $form) {
+                $projectId = $form->input('project_id');
+                $project = Project::find($projectId);
+                $form->input('project_name' , $project->title);
+            });
         });
     }
 }
