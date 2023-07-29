@@ -58,6 +58,9 @@ class ReservationController extends Controller
             'doctor_id.exists' => '医生不存在',
             'phone.regex' => '错误的预约电话',
             'name.required' => '预约姓名',
+            'project_id.required' => '预约项目不能为空',
+            'project_id.exists' => '预约项目不存在',
+            'project_name.required' => '预约项目Name不能为空',
             'name.max' => '姓名太长',
         ]);
         if ($validator->fails()) {
