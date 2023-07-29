@@ -34,6 +34,7 @@ class SiteSettingForm extends Form
 
         $this->text("BANNER_TITLE", '首页头图Banner标题');
         $this->text("CARD_TITLE", '首页卡片模块标题');
+        $this->image("SHOP_COVER", '商店页COVER')->autoUpload()->removable(false);
 
     }
 
