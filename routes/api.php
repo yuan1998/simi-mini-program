@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\GridHomeController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\TestProjectController;
 use App\Http\Controllers\TestProjectResultController;
@@ -43,6 +44,7 @@ Route::get('/product/{id}', [ProductController::class, 'detail']);
 Route::get('/project/{id}', [TestProjectController::class, 'detail']);
 Route::get('/article/{id}', [ArticleController::class, 'show']);
 
+Route::get('/project/options', [ProjectController::class, 'options']);
 Route::get('/banner', [BannerController::class, 'index']);
 Route::get('/home/setting', [BannerController::class, 'homeSetting']);
 Route::get('/grid_home', [GridHomeController::class, 'index']);

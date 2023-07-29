@@ -20,30 +20,12 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        $this->call(AdminExtensionHistoriesTableSeeder::class);
-        $this->call(AdminExtensionsTableSeeder::class);
+
         $this->call(AdminMenuTableSeeder::class);
-        $this->call(AdminPermissionMenuTableSeeder::class);
         $this->call(AdminPermissionsTableSeeder::class);
+        $this->call(AdminPermissionMenuTableSeeder::class);
+        $this->call(AdminRolesTableSeeder::class);
         $this->call(AdminRoleMenuTableSeeder::class);
         $this->call(AdminRolePermissionsTableSeeder::class);
-        $this->call(AdminRoleUsersTableSeeder::class);
-        $this->call(AdminRolesTableSeeder::class);
-        $this->call(AdminSettingsTableSeeder::class);
-        $this->call(AdminUsersTableSeeder::class);
-        $this->call(ArticlesTableSeeder::class);
-        $this->call(BannersTableSeeder::class);
-        $this->call(CardHomesTableSeeder::class);
-        $this->call(CategoriesTableSeeder::class);
-        $this->call(ProductsTableSeeder::class);
-        $this->call(DoctorsTableSeeder::class);
-        $this->call(GridHomesTableSeeder::class);
-        $this->call(PersonalAccessTokensTableSeeder::class);
-        $this->call(ProgramPagesTableSeeder::class);
-        $this->call(ReservationsTableSeeder::class);
-        $this->call(TestProjectResultsTableSeeder::class);
-        $this->call(TestProjectsTableSeeder::class);
-        $this->call(UsersTableSeeder::class);
-        $this->call(CategoryHasProductsTableSeeder::class);
     }
 }

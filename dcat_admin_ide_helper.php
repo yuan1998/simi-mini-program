@@ -74,6 +74,7 @@ namespace Dcat\Admin {
      * @property Grid\Column|Collection images
      * @property Grid\Column|Collection doctor_id
      * @property Grid\Column|Collection date
+     * @property Grid\Column|Collection phone
      * @property Grid\Column|Collection project_id
      * @property Grid\Column|Collection score
      * @property Grid\Column|Collection answers
@@ -152,6 +153,7 @@ namespace Dcat\Admin {
      * @method Grid\Column|Collection images(string $label = null)
      * @method Grid\Column|Collection doctor_id(string $label = null)
      * @method Grid\Column|Collection date(string $label = null)
+     * @method Grid\Column|Collection phone(string $label = null)
      * @method Grid\Column|Collection project_id(string $label = null)
      * @method Grid\Column|Collection score(string $label = null)
      * @method Grid\Column|Collection answers(string $label = null)
@@ -235,6 +237,7 @@ namespace Dcat\Admin {
      * @property Show\Field|Collection images
      * @property Show\Field|Collection doctor_id
      * @property Show\Field|Collection date
+     * @property Show\Field|Collection phone
      * @property Show\Field|Collection project_id
      * @property Show\Field|Collection score
      * @property Show\Field|Collection answers
@@ -313,6 +316,7 @@ namespace Dcat\Admin {
      * @method Show\Field|Collection images(string $label = null)
      * @method Show\Field|Collection doctor_id(string $label = null)
      * @method Show\Field|Collection date(string $label = null)
+     * @method Show\Field|Collection phone(string $label = null)
      * @method Show\Field|Collection project_id(string $label = null)
      * @method Show\Field|Collection score(string $label = null)
      * @method Show\Field|Collection answers(string $label = null)

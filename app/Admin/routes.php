@@ -20,6 +20,7 @@ Route::group([
     $router->resource('categories', 'CategoryController');
     $router->resource('products', 'ProductController');
     $router->resource('doctors', 'DoctorController');
+    $router->resource('projects', 'ProjectController');
     $router->resource('users', 'UserController');
     $router->resource('reservations', 'ReservationController');
     $router->resource('articles', 'ArticleController');

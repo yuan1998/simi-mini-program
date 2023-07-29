@@ -279,6 +279,19 @@ class AdminMenuTableSeeder extends Seeder
                 'created_at' => '2023-07-05 11:11:52',
                 'updated_at' => '2023-07-05 11:11:52',
             ),
+            20 => 
+            array (
+                'id' => 21,
+                'parent_id' => 0,
+                'order' => 21,
+                'title' => '预约项目',
+                'icon' => NULL,
+                'uri' => '/projects',
+                'extension' => '',
+                'show' => 1,
+                'created_at' => '2023-07-29 10:31:18',
+                'updated_at' => '2023-07-29 10:31:18',
+            ),
         ));
         
         
