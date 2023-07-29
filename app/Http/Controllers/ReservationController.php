@@ -26,6 +26,7 @@ class ReservationController extends Controller
                 return [
                     'doctor_name' => data_get($item, 'doctor.name'),
                     'date' => data_get($item, 'date'),
+                    'project_name' => data_get($item, 'project_name'),
                     'status' => data_get(Reservation::STATUS_LIST, $item->status),
                 ];
             })->toArray();
