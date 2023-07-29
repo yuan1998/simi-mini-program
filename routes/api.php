@@ -34,6 +34,7 @@ Route::group([
     Route::post('/reservation', [ReservationController::class, 'store']);
     Route::get('/reservation', [ReservationController::class, 'indexOfUser']);
 });
+Route::get('/project/options', [ProjectController::class, 'options']);
 
 Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/product/search', [ProductController::class, 'search']);
@@ -44,7 +45,7 @@ Route::get('/product/{id}', [ProductController::class, 'detail']);
 Route::get('/project/{id}', [TestProjectController::class, 'detail']);
 Route::get('/article/{id}', [ArticleController::class, 'show']);
 
-Route::get('/project/options', [ProjectController::class, 'options']);
+
 Route::get('/banner', [BannerController::class, 'index']);
 Route::get('/home/setting', [BannerController::class, 'homeSetting']);
 Route::get('/grid_home', [GridHomeController::class, 'index']);
