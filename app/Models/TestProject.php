@@ -10,6 +10,6 @@ class TestProject extends Model
 {
     use HasFactory,HasDateTimeFormatter;
     protected $casts = [
-        'question_data' => 'json'
+        'question_data' => 'json',
     ];
 }

@@ -17,11 +17,13 @@ class TestProjectResultController extends Controller
                 'msg' => '找不到该项目'
             ]);
         $answers = $request->get('answers');
+        $form_data = $request->get('form_data');
         $score = $request->get('score');
         $userId = $request->user()->id;
 
         TestProjectResult::create([
             'answers' => $answers,
+            'form_data' => $form_data,
             'score' => $score,
             'user_id' => $userId,
             'project_id' => $projectId,

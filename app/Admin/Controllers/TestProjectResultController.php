@@ -29,6 +29,7 @@ class TestProjectResultController extends AdminController
             $grid->column('project_id')->hide();
             $grid->column('score');
             $grid->column('answers');
+            $grid->column('form_data');
             $grid->column('created_at');
 
             $grid->filter(function (Grid\Filter $filter) {
