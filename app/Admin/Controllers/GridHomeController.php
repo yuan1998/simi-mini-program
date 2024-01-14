@@ -149,6 +149,8 @@ class GridHomeController extends AdminController
                     'target_3',
                     'target_4',
                     'target_6',
+                    'target_7',
+                    'target_8',
                 ]);
 
             });
