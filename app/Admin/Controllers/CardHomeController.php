@@ -126,6 +126,8 @@ class CardHomeController extends AdminController
                             ]);
                         break;
                     case "3":
+                    case "7":
+                    case "8":
                         break;
                     case "4":
                         if (!filter_var($val, FILTER_VALIDATE_URL))
