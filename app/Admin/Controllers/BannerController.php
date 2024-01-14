@@ -82,6 +82,10 @@ class BannerController extends AdminController
                     $form->text('target_4', '外部url')->help('使用外部url需要在小程序官网添加业务域名');
                 })->when(6, function ($form) {
                     $form->text('target_6', '商品ID')->help('输入站内商品的ID');
+                })->when(7, function ($form) {
+                    $form->text('target_7', '视频号ID')->help('输入视频号ID,视频号主体和小程序主体需要一致');
+                })->when(8, function ($form) {
+                    $form->text('target_8', '视频号ID+视频ID')->help('视频号主体和小程序主体需要一致,格式:视频号ID+视频ID');
                 })->required()
                 ->default(0);
 
