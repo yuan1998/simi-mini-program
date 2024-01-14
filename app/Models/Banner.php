@@ -24,6 +24,8 @@ class Banner extends Model  implements Sortable
         4 => 'h5链接',
         5 => '客服',
         6 => '商品',
+        7 => '视频号-主页',
+        8 => '视频号-视频',
     ];
 
     protected $sortable = [
