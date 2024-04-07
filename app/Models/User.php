@@ -41,7 +41,9 @@ class User extends Authenticatable
     public static function toOptions() {
         return static::query()
             ->select(['enable' , 'id' , 'nike_name'])
-            ->where('enable' ,1)->get()->pluck('nike_name' , 'id');
+            ->where('enable' ,1)
+            ->get()
+            ->pluck('nike_name' , 'id');
     }
 
 }

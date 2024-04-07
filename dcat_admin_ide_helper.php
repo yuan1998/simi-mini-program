@@ -59,6 +59,9 @@ namespace Dcat\Admin {
      * @property Grid\Column|Collection payload
      * @property Grid\Column|Collection exception
      * @property Grid\Column|Collection failed_at
+     * @property Grid\Column|Collection phone
+     * @property Grid\Column|Collection result
+     * @property Grid\Column|Collection cache
      * @property Grid\Column|Collection email
      * @property Grid\Column|Collection token
      * @property Grid\Column|Collection tokenable_type
@@ -74,10 +77,11 @@ namespace Dcat\Admin {
      * @property Grid\Column|Collection images
      * @property Grid\Column|Collection doctor_id
      * @property Grid\Column|Collection date
-     * @property Grid\Column|Collection phone
+     * @property Grid\Column|Collection project_name
      * @property Grid\Column|Collection project_id
      * @property Grid\Column|Collection score
      * @property Grid\Column|Collection answers
+     * @property Grid\Column|Collection form_data
      * @property Grid\Column|Collection question_data
      * @property Grid\Column|Collection end_msg
      * @property Grid\Column|Collection nike_name
@@ -138,6 +142,9 @@ namespace Dcat\Admin {
      * @method Grid\Column|Collection payload(string $label = null)
      * @method Grid\Column|Collection exception(string $label = null)
      * @method Grid\Column|Collection failed_at(string $label = null)
+     * @method Grid\Column|Collection phone(string $label = null)
+     * @method Grid\Column|Collection result(string $label = null)
+     * @method Grid\Column|Collection cache(string $label = null)
      * @method Grid\Column|Collection email(string $label = null)
      * @method Grid\Column|Collection token(string $label = null)
      * @method Grid\Column|Collection tokenable_type(string $label = null)
@@ -153,10 +160,11 @@ namespace Dcat\Admin {
      * @method Grid\Column|Collection images(string $label = null)
      * @method Grid\Column|Collection doctor_id(string $label = null)
      * @method Grid\Column|Collection date(string $label = null)
-     * @method Grid\Column|Collection phone(string $label = null)
+     * @method Grid\Column|Collection project_name(string $label = null)
      * @method Grid\Column|Collection project_id(string $label = null)
      * @method Grid\Column|Collection score(string $label = null)
      * @method Grid\Column|Collection answers(string $label = null)
+     * @method Grid\Column|Collection form_data(string $label = null)
      * @method Grid\Column|Collection question_data(string $label = null)
      * @method Grid\Column|Collection end_msg(string $label = null)
      * @method Grid\Column|Collection nike_name(string $label = null)
@@ -222,6 +230,9 @@ namespace Dcat\Admin {
      * @property Show\Field|Collection payload
      * @property Show\Field|Collection exception
      * @property Show\Field|Collection failed_at
+     * @property Show\Field|Collection phone
+     * @property Show\Field|Collection result
+     * @property Show\Field|Collection cache
      * @property Show\Field|Collection email
      * @property Show\Field|Collection token
      * @property Show\Field|Collection tokenable_type
@@ -237,10 +248,11 @@ namespace Dcat\Admin {
      * @property Show\Field|Collection images
      * @property Show\Field|Collection doctor_id
      * @property Show\Field|Collection date
-     * @property Show\Field|Collection phone
+     * @property Show\Field|Collection project_name
      * @property Show\Field|Collection project_id
      * @property Show\Field|Collection score
      * @property Show\Field|Collection answers
+     * @property Show\Field|Collection form_data
      * @property Show\Field|Collection question_data
      * @property Show\Field|Collection end_msg
      * @property Show\Field|Collection nike_name
@@ -301,6 +313,9 @@ namespace Dcat\Admin {
      * @method Show\Field|Collection payload(string $label = null)
      * @method Show\Field|Collection exception(string $label = null)
      * @method Show\Field|Collection failed_at(string $label = null)
+     * @method Show\Field|Collection phone(string $label = null)
+     * @method Show\Field|Collection result(string $label = null)
+     * @method Show\Field|Collection cache(string $label = null)
      * @method Show\Field|Collection email(string $label = null)
      * @method Show\Field|Collection token(string $label = null)
      * @method Show\Field|Collection tokenable_type(string $label = null)
@@ -316,10 +331,11 @@ namespace Dcat\Admin {
      * @method Show\Field|Collection images(string $label = null)
      * @method Show\Field|Collection doctor_id(string $label = null)
      * @method Show\Field|Collection date(string $label = null)
-     * @method Show\Field|Collection phone(string $label = null)
+     * @method Show\Field|Collection project_name(string $label = null)
      * @method Show\Field|Collection project_id(string $label = null)
      * @method Show\Field|Collection score(string $label = null)
      * @method Show\Field|Collection answers(string $label = null)
+     * @method Show\Field|Collection form_data(string $label = null)
      * @method Show\Field|Collection question_data(string $label = null)
      * @method Show\Field|Collection end_msg(string $label = null)
      * @method Show\Field|Collection nike_name(string $label = null)

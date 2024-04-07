@@ -31,6 +31,8 @@ Route::group([
 ], function () {
     Route::get('/wechat/user', [WeChatController::class, 'indexUser']);
     Route::post('/project/result', [TestProjectResultController::class, 'store']);
+    Route::post('/loop_log/store', [\App\Http\Controllers\LoopLogController::class, 'store']);
+    Route::post('/loop_log/check', [\App\Http\Controllers\LoopLogController::class, 'isLoop']);
     Route::post('/reservation', [ReservationController::class, 'store']);
     Route::get('/reservation', [ReservationController::class, 'indexOfUser']);
 });

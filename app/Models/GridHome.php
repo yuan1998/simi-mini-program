@@ -22,6 +22,7 @@ class GridHome extends Model  implements Sortable
         // 是否在创建时自动排序，此参数建议设置为true
         'sort_when_creating' => true,
     ];
+
     public function getFullPathAttribute() {
         return $this->path? Storage::disk('public')->url($this->path) : null;
     }
@@ -35,6 +36,5 @@ class GridHome extends Model  implements Sortable
         ]);
         $result['path'] = $this->full_path;
         return $result;
-
     }
 }

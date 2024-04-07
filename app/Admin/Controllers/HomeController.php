@@ -58,7 +58,6 @@ class HomeController extends Controller
             });
     }
 
-
     public function setting(Content $content): Content
     {
         return $content

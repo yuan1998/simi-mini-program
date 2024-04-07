@@ -7,8 +7,8 @@ use Dcat\Admin\Admin;
 Admin::routes();
 
 Route::group([
-    'prefix'     => config('admin.route.prefix'),
-    'namespace'  => config('admin.route.namespace'),
+    'prefix' => config('admin.route.prefix'),
+    'namespace' => config('admin.route.namespace'),
     'middleware' => config('admin.route.middleware'),
 ], function (Router $router) {
 
@@ -17,6 +17,7 @@ Route::group([
     $router->resource('program_pages', 'ProgramPageController');
     $router->resource('banners', 'BannerController');
     $router->resource('grid_home', 'GridHomeController');
+    $router->resource('loop_logs', 'LoopLogController');
     $router->resource('categories', 'CategoryController');
     $router->resource('products', 'ProductController');
     $router->resource('doctors', 'DoctorController');

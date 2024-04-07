@@ -101,7 +101,7 @@ class WeChatController extends Controller
         return response()->json([
             'code' => self::HTTP_OK,
             'msg' => 'OK',
-            'data' => Arr::only($user->toArray(), ["avatar", "nike_name", "language", "province", "country", "city", "gender"])
+            'data' => Arr::only($user->toArray(), ["avatar", "nike_name", "language", "province", "country", "city", "gender","phone"])
         ]);
     }
 }
