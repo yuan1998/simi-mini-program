@@ -292,6 +292,19 @@ class AdminMenuTableSeeder extends Seeder
                 'created_at' => '2023-07-29 10:31:18',
                 'updated_at' => '2023-07-29 10:31:18',
             ),
+            21 => 
+            array (
+                'id' => 22,
+                'parent_id' => 0,
+                'order' => 22,
+                'title' => '抽奖日志',
+                'icon' => NULL,
+                'uri' => '/loop_logs',
+                'extension' => '',
+                'show' => 1,
+                'created_at' => '2024-04-06 17:53:55',
+                'updated_at' => '2024-04-06 17:53:55',
+            ),
         ));
         
         
