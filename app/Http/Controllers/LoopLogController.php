@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\loopLog;
+use App\Models\LoopLog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
