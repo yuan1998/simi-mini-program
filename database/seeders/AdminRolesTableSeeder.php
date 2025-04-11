@@ -21,10 +21,10 @@ class AdminRolesTableSeeder extends Seeder
         \DB::table('admin_roles')->insert(array (
             0 => 
             array (
+                'created_at' => '2023-06-30 03:50:34',
                 'id' => 1,
                 'name' => 'Administrator',
                 'slug' => 'administrator',
-                'created_at' => '2023-06-30 03:50:34',
                 'updated_at' => '2023-06-30 03:50:35',
             ),
         ));

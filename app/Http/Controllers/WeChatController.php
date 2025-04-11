@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class WeChatController extends Controller
@@ -33,6 +35,7 @@ class WeChatController extends Controller
             'country' => $request->get('country'),
             'city' => $request->get('city'),
             'gender' => $request->get('gender'),
+            'invite_id' => $request->get('invite_id'),
             'session_key' => $sessionKey,
             'unionid' => data_get($session, 'unionid'),
         ];
@@ -44,7 +47,7 @@ class WeChatController extends Controller
             'openid' => $openId,
         ], $data);
 
-        $data = Arr::only($user->toArray(), ["avatar", "nike_name", "language", "province", "country", "city", "gender"]);
+        $data = Arr::only($user->toArray(), ["id", "block", "avatar", "nike_name", "language", "province", "country", "city", "gender", "phone", 'invite_id']);
         $data['token'] = $user->createToken('token')->plainTextToken;
         return response()->json([
             'code' => self::HTTP_OK,
@@ -82,12 +85,14 @@ class WeChatController extends Controller
                 "msg" => "OK",
             ]);
         }
+        Log::debug("获取号码失败" , $result);
         return response()->json([
             "code" => self::HTTP_AUTH_PHONE_ERROR,
-            "msg" => data_get($result, 'errmsg'),
-            "data" => data_get($result, 'phone_info'),
+            "msg" => "服务器繁忙,请重试",
+            "data" => data_get($result, 'phone_info',[]),
         ]);
     }
+    // msg: "invalid credential, access_token is invalid or not latest, could get access_token by getStableAccessToken, more details at https://mmbizurl.cn/s/JtxxFh33r rid: 67f3bc42-4b3ea2d7-5e5eaccb"
 
     public function indexUser(Request $request)
     {
@@ -101,7 +106,71 @@ class WeChatController extends Controller
         return response()->json([
             'code' => self::HTTP_OK,
             'msg' => 'OK',
-            'data' => Arr::only($user->toArray(), ["avatar", "nike_name", "language", "province", "country", "city", "gender","phone"])
+            'data' => Arr::only($user->toArray(), ["id", "avatar", "nike_name", "language", "province", "country", "city", "gender", "phone", 'invite_id'])
         ]);
+    }
+
+    public function updateUserInfo(Request $request)
+    {
+        $user = $request->user();
+        if (!$user->enable)
+            return response()->json([
+                'code' => self::HTTP_AUTH_BLOCK,
+                'msg' => 'User get block',
+            ]);
+        $arr = $request->only(['nike_name', 'avatar', 'invite_id']);
+        $user->fill($arr);
+        $user->save();
+        return response()->json([
+            'code' => self::HTTP_OK,
+            'msg' => '保存成功!',
+        ]);
+    }
+
+    public function uploadFile(Request $request)
+    {
+        $file = $request->file('image');
+        $type = $request->get("type", "default");
+        $res = $file->storeAs("/images/$type", $file->getClientOriginalName(), ['disk' => 'public']);
+        $url = Storage::disk("public")->url($res);
+        return response()->json([
+            'code' => self::HTTP_OK,
+            'msg' => 'OK.',
+            'data' => $url
+        ]);
+    }
+
+    public function generateQrcode(Request $request)
+    {
+        $user = $request->user();
+        if (!$user->enable)
+            return response()->json([
+                'code' => self::HTTP_AUTH_BLOCK,
+                'msg' => 'User get block',
+            ]);
+        $path = $request->get('path');
+        if (!$path)
+            return response()->json([
+                'code' => self::HTTP_REQUEST_ERROR,
+                'msg' => '页面路径不能为空',
+            ]);
+        $str = md5("{$user->id}{$path}");
+        $name = "/qrcode/{$str}.png";
+        if (!Storage::disk('public')->exists($name)) {
+            $app = app('easywechat.mini_app');
+            $r = $app->getClient()->postJson('wxa/getwxacode', [
+                'path' => $path,
+            ]);
+            $responseContent = $r->getContent();
+            Storage::disk("public")->put($name, $responseContent);
+        }
+
+        return response()->json([
+                'code' => self::HTTP_OK,
+                'msg' => 'OK',
+                'data' => Storage::disk('public')->url($name)
+            ]
+        );
+
     }
 }

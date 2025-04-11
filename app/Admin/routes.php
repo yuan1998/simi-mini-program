@@ -28,5 +28,8 @@ Route::group([
     $router->resource('test_project', 'TestProjectController');
     $router->resource('test_project_result', 'TestProjectResultController');
     $router->resource('card_home', 'CardHomeController');
-
+    $router->resource('loop_lottery', 'LoopProjectController');
+    $router->resource('loop_lottery_logs', 'LoopProjectLogController')->names([
+        'index' => 'loop_lottery_logs.index'
+    ]);
 });
